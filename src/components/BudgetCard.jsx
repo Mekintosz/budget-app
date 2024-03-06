@@ -2,14 +2,12 @@ import { Card, ProgressBar, Stack, Button } from "react-bootstrap";
 import { currencyFormatter } from "../utils";
 
 export default function BudgetCard({ name, amount, max, gray }) {
-    const classNames = []
-    if (amount > max) {
-        classNames.push('bg-danger', 'bg-opacity-10')
-    } else if (gray) {
-        classNames.push('bg-light')
-    }
-
-
+  const classNames = [];
+  if (amount > max) {
+    classNames.push("bg-danger", "bg-opacity-10");
+  } else if (gray) {
+    classNames.push("bg-light");
+  }
   return (
     <Card className={classNames.join(" ")}>
       <Card.Body>
@@ -29,9 +27,11 @@ export default function BudgetCard({ name, amount, max, gray }) {
           max={max}
           now={amount}
         ></ProgressBar>
-        <Stack direction="horizontal" gap='2' className="mt-4">
-            <Button variant="outline-primary" className="ms-auto">Add expense</Button>
-            <Button variant="outline-secondary">View expenses</Button>
+        <Stack direction="horizontal" gap="2" className="mt-4">
+          <Button variant="outline-primary" className="ms-auto">
+            Add expense
+          </Button>
+          <Button variant="outline-secondary">View expenses</Button>
         </Stack>
       </Card.Body>
     </Card>
