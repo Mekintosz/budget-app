@@ -12,7 +12,7 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
     addExpense({
       description: descriptionRef.current.value,
       amount: parseFloat(amountRef.current.value),
-      budgetId: budgetId.current.value,
+      budgetId: budgetIdRef.current.value,
     });
     handleClose();
   }
@@ -40,9 +40,9 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
           </Form.Group>
           <Form.Group className="mb-3" controlId="budgetId">
             <Form.Label>Budget</Form.Label>
-            <Form.Select>
-                defaultValue={defaultBudgetId}
-              ref={budgetIdRef}
+            <Form.Select
+              defaultValue={defaultBudgetId}
+              ref={budgetIdRef}>
               <option id={UNCATEGORIZED_BUDGET_ID}>Uncategorized</option>
               {budgets.map(budget => (
                 <option key={budget.id} value={budget.id}>{budget.name}</option>
